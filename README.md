@@ -225,7 +225,7 @@ So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European 
 | **F:** Lambda (λ)              | `=0.94`                                               | Decay factor (higher = smoother volatility).                      |
 |  EWMA Variances                | `=G5*$F$3 + A5^2*(1-$F$3)`                            | Recursive formula: new σ² = λ * old σ² + (1-λ) * r².              |
 | EWMA Covariances               | `=K5*$F$3 + A5*B5*(1-$F$3)`                           | Covariance update between assets (same EWMA rule).                |
-| **O:** EWMA Portfolio Variance | `=MMULT(TRANSPOSE(Weights),MMULT(CovMatrix,Weights))` | Portfolio σ² using latest EWMA covariance matrix.                 |
+
 
 
 # $ VaR Vol Adjust Analysis Workbook
