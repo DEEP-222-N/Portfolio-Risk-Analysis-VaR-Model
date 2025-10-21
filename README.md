@@ -240,7 +240,7 @@ So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European 
 |                             | Skewness               | Measure of asymmetry in loss distribution                 | `=SKEW(LossRange)`                                                 |
 |                             | Kurtosis               | Measure of tail risk in loss distribution                 | `=KURT(LossRange)`                                                 |
 | **Value at Risk (VaR)**     | Confidence Level (B21) | Probability for VaR CI (e.g., 0.95 = 95%)                 | Manual input                                                       |
-|                             | VaR (B23)              | Portfolio loss threshold not exceeded at given confidence | `=PERCENTILE.EXC($J$5:$J$504,A23)`                  |
+|                             | VaR (B23)              | Portfolio loss threshold not exceeded at given confidence | `=PERCENTILE.EXC($J$5:$J$504,A23)`                                 |
 |                             | Std Error (C23)        | Standard error of VaR estimate                            | `=StdDev / SQRT(Number of Scenarios)`                              |
 |                             | CI_Low                 | Lower bound of VaR confidence interval                    | `=B23 - NORM.S.INV($B$21) * C23`                                   |
 |                             | CI_Up                  | Upper bound of VaR confidence interval                    | `=B23 + NORM.S.INV($B$21) * C23`                                   |
