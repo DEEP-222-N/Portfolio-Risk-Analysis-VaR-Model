@@ -139,4 +139,14 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 | `=I23/J23`                                                  | Ratio of **Normal VaR to Normal ES**, shows relationship between tail loss and average loss beyond VaR |
 
 
+| **Formula**                                        | **Simple Meaning**                                                                                  |
+| -------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| `=T.INV(A23,$J$20)`                                | Finds the **t-value** for a given confidence level (like 95%) and degrees of freedom.               |
+| `=I23*$B$16*SQRT(ABS(($J$19-2)/$J$19))+$B$15`      | Calculates **t-VaR** — the possible worst loss, adjusted for **fat tails** (more extreme outcomes). |
+| `=($J$19-2+I23^2)/($J$19-1)`                       | Finds an **adjustment factor** used later to make ES more accurate.                                 |
+| `=$B$15+$B$16*T.DIST(I23,$J$19,FALSE)*K23/(1-A23)` | Calculates **t-ES (Expected Shortfall)** — the **average loss beyond VaR** under t-distribution.    |
+| `=J23/L23`                                         | Compares **t-VaR to t-ES**, showing how much the worst loss differs from the average extreme loss.  |
+
+
+
 
