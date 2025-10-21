@@ -55,6 +55,8 @@ Recent returns are given more weight, making VaR more sensitive to volatility cl
 Adjusts the VaR estimate based on changes in portfolio volatility over time.
 Useful for scaling historical VaR values to current market conditions.
 
+# Data Workbook
+
 | Column            | Description                            | Type               | Notes                                                                |
 | ----------------- | -------------------------------------- | ------------------ | -------------------------------------------------------------------- |
 | **Date**          | Exact calendar date                    | Date               | Useful for time-series analysis.                                     |
