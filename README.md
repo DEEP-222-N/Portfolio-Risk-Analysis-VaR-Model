@@ -16,6 +16,47 @@ Visualize how volatility and distribution shape affect portfolio risk estimates
 
 In essence, this project provides a hands-on demonstration of portfolio risk modeling, allowing learners and analysts to explore how quantitative finance techniques are applied in real-world risk assessment.
 
+:
+
+💸 Portfolio Loss
+
+Represents the total change in portfolio value over a given time period.
+It helps quantify how much money you could lose based on actual market movements.
+
+📉 Portfolio VaR (Value at Risk)
+
+VaR estimates the maximum potential loss of a portfolio over a given time period at a certain confidence level (e.g., 95% or 99%).
+For example, a 95% one-day VaR of $10,000 means there’s a 5% chance the portfolio will lose more than $10,000 in one day.
+
+📊 Normal VaR
+
+Assumes portfolio returns follow a normal (bell-curve) distribution.
+It’s the simplest VaR method, often used for quick, analytical calculations.
+
+🔢 t VaR
+
+Uses the Student’s t-distribution instead of the normal distribution.
+This model better captures fat tails — large, rare losses that occur more often in financial markets than the normal model predicts.
+
+⚖️ Weighted VaR
+
+Assigns weights to recent data so that more recent returns have a greater influence on the VaR estimate.
+This makes the model more responsive to market volatility changes.
+
+🧠 Parametric VaR (Equal Weights)
+
+A parametric or variance-covariance approach that assumes returns are normally distributed and each past observation has equal importance.
+
+⚙️ Parametric VaR (EWMA)
+
+Uses Exponentially Weighted Moving Average (EWMA) volatility.
+Recent returns are given more weight, making VaR more sensitive to volatility clustering — periods when large movements tend to follow large movements.
+
+📈 VaR Vol Adjust
+
+Adjusts the VaR estimate based on changes in portfolio volatility over time.
+Useful for scaling historical VaR values to current market conditions.
+
 | Column            | Description                            | Type               | Notes                                                                |
 | ----------------- | -------------------------------------- | ------------------ | -------------------------------------------------------------------- |
 | **Date**          | Exact calendar date                    | Date               | Useful for time-series analysis.                                     |
