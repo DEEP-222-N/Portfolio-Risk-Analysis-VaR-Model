@@ -50,11 +50,6 @@ A parametric or variance-covariance approach that assumes returns are normally d
 Uses Exponentially Weighted Moving Average (EWMA) volatility.
 Recent returns are given more weight, making VaR more sensitive to volatility clustering — periods when large movements tend to follow large movements.
 
-📈 VaR Vol Adjust
-
-Adjusts the VaR estimate based on changes in portfolio volatility over time.
-Useful for scaling historical VaR values to current market conditions.
-
 # Data Workbook
 
 | Column            | Description                            | Type               | Notes                                                                |
@@ -282,31 +277,6 @@ So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European 
 | **F:** Lambda (λ)              | `=0.94`                                               | Decay factor (higher = smoother volatility).                      |
 |  EWMA Variances                | `=G5*$F$3 + A5^2*(1-$F$3)`                            | Recursive formula: new σ² = λ * old σ² + (1-λ) * r².              |
 | EWMA Covariances               | `=K5*$F$3 + A5*B5*(1-$F$3)`                           | Covariance update between assets (same EWMA rule).                |
-
-
-
-# $ VaR Vol Adjust Analysis Workbook
-
-| Section | Item | Description | Formula / Method |
-|----------|------|--------------|------------------|
-| **Loss Bins / Histogram** | Bin | Loss ranges for histogram | Defined manually or with FLOOR / CEILING |
-|  | Frequency | Number of scenarios in each bin | `=COUNTIFS(LossRange, ">=" & BinLower, LossRange, "<" & BinUpper)` |
-|  | Relative Frequency | Fraction of scenarios in each bin | `=Frequency / TotalScenarios` |
-| **Descriptive Statistics** | Min | Minimum loss across all scenarios | `=MIN(LossRange)` |
-|  | Max | Maximum loss across all scenarios | `=MAX(LossRange)` |
-|  | Mean | Average portfolio loss | `=AVERAGE(LossRange)` |
-|  | Std Dev | Standard deviation of portfolio loss | `=STDEV.P(LossRange)` |
-|  | Skewness | Measure of asymmetry in loss distribution | `=SKEW(LossRange)` |
-|  | Kurtosis | Measure of tail risk in loss distribution | `=KURT(LossRange)` |
-| **Value at Risk (VaR)** | Confidence Level (B21) | Probability for VaR CI (e.g., 0.95 = 95%) | Manual input |
-|  | VaR (B23) | Portfolio loss threshold not exceeded at given confidence | `=PERCENTILE.EXC($J$5:$J$504,A23)` |
-|  | Std Error (C23) | Standard error of VaR estimate | `=StdDev / SQRT(Number of Scenarios)` |
-|  | CI_Low | Lower bound of VaR confidence interval | `=B23 - NORM.S.INV($B$21) * C23` |
-|  | CI_Up | Upper bound of VaR confidence interval | `=B23 + NORM.S.INV($B$21) * C23` |
-|  | Explanation | CI gives the range where “true” VaR likely lies | Subtract / add margin of error (z-score × Std Error) to VaR |
-| **Expected Shortfall (ES)** | ES | Average loss beyond VaR (tail risk) | `=AVERAGEIF(LossRange, "<=" & -VaR)` |
-
-
 
 
 
