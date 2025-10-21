@@ -148,6 +148,13 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 | `=$B$15+$B$16*T.DIST(I23,$J$19,FALSE)*K23/(1-A23)` | Calculates **t-ES (Expected Shortfall)** — the **average loss beyond VaR** under t-distribution.    |
 | `=J23/L23`                                         | Compares **t-VaR to t-ES**, showing how much the worst loss differs from the average extreme loss.  |
 
+# Weighted VAR Analysis Workbook
 
+| Index    | Country     | Why it’s included                |
+| -------- | ----------- | -------------------------------- |
+| DJIA     | 🇺🇸 USA    | Exposure to U.S. market          |
+| FTSE-100 | 🇬🇧 UK     | Exposure to European (UK) market |
+| CAC-40   | 🇫🇷 France | Exposure to Eurozone             |
+| Nikkei   | 🇯🇵 Japan  | Exposure to Asian market         |
 
 
