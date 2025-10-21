@@ -130,3 +130,13 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 | **Expected Shortfall (ES)** | ES                     | Average loss beyond VaR (tail risk)                       | `=AVERAGEIF(LossRange, "<=" & -VaR)`                               |
 
 
+
+| **Formula**                                                 |  **Meaning / Purpose**                                                                                  |
+| ----------------------------------------------------------- |------------------------------------------------------------------------------------------------------ | 
+| `=B23/G23`                                                  | Calculates **ratio of Value at Risk (VaR) to Expected Shortfall (ES)**                                 |
+| `=NORM.INV($A23,$B$15,$B$16)`                               | Gives **Normal VaR** — VaR assuming returns follow a **normal distribution**                           |
+| `=$B$15 + NORM.DIST(I23,$B$15,$B$16,FALSE)*$B$16^2/(1-A23)` | Calculates **Normal Expected Shortfall (N ES)** — average loss **beyond Normal VaR**                   | 
+| `=I23/J23`                                                  | Ratio of **Normal VaR to Normal ES**, shows relationship between tail loss and average loss beyond VaR |
+
+
+
