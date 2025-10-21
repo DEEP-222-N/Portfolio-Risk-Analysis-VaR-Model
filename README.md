@@ -216,6 +216,9 @@ So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European 
 | **Q:** ES                                | `=$H$22*NORM.S.DIST(O3,FALSE)/(1-N3)`                       | Calculates average loss beyond VaR during extreme events..          |
 
 
+# Parm VaR  EWMA Analysis Workbook
+
+
 | Column                         | Example Formula                                       | Purpose / Logic                                                   |
 | ------------------------------ | ----------------------------------------------------- | ----------------------------------------------------------------- |
 | **A–E:** Historical Returns    | `=(Data!C3-Data!C2)/Data!C2`                          | Base returns for assets.                                          |
