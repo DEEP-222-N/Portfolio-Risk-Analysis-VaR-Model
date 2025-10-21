@@ -150,6 +150,15 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 
 # Weighted VAR Analysis Workbook
 
+> **Note:** Why I Adjust FTSE-100 Using Hang Seng
+
+So here’s the thing — even though FTSE-100 is from the UK and Hang Seng is from Hong Kong, I adjust FTSE-100 based on Hang Seng in my simulations.
+
+The reason is cross-market correlations. Basically, a big move in Hong Kong can affect Europe too, so I scale FTSE-100’s value according to Hang Seng’s price changes.
+
+Important: This isn’t a real market conversion — it’s just a simulation trick.
+If I wanted FTSE-100 to be completely independent, I’d just use the base value $C$6 and ignore Hang Seng. But for VaR and Monte Carlo simulations, this makes the portfolio risk more realistic.
+
 | Index    | Country     | Why it’s included                |
 | -------- | ----------- | -------------------------------- |
 | DJIA     | 🇺🇸 USA    | Exposure to U.S. market          |
