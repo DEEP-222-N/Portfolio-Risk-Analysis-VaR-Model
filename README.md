@@ -16,8 +16,6 @@ Visualize how volatility and distribution shape affect portfolio risk estimates
 
 In essence, this project provides a hands-on demonstration of portfolio risk modeling, allowing learners and analysts to explore how quantitative finance techniques are applied in real-world risk assessment.
 
-:
-
 💸 Portfolio Loss
 
 Represents the total change in portfolio value over a given time period.
