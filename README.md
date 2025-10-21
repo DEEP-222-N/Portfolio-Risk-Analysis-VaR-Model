@@ -166,4 +166,52 @@ If I wanted FTSE-100 to be completely independent, I’d just use the base value
 | CAC-40   | 🇫🇷 France | Exposure to Eurozone             |
 | Nikkei   | 🇯🇵 Japan  | Exposure to Asian market         |
 
+| Column                                   | Example Formula                             | Purpose / Logic                                                                         |
+| ---------------------------------------- | ------------------------------------------- | --------------------------------------------------------------------------------------- |
+| **A:** Date                              | Direct from “Data” sheet                    | Date / observation number.                                                              |
+| **B–M:** Asset Returns                   | `=Data!C3/Data!C2 - 1` (patterned)          | Individual asset returns for each day.                                                  |
+| **N:** Portfolio Return                  | `=MMULT(J5:M5,$D$5:$D$8)`                   | Weighted portfolio return (dot product of asset returns × weights).                     |
+| **O:** Mean-Adjusted Return              | `=N5 - $B$9`                                | Demeaned portfolio return (subtracting average).                                        |
+| **P:** Portfolio Loss                    | `=-O5`                                      | Loss = - (return). Converts positive return to loss value.                              |
+| **Q:** Exponential Weight                | `=$Q$2^(500-I5)*(1-$Q$2)/(1-$Q$2^500)`      | Weight for each observation using decay factor λ (`$Q$2`). More recent = higher weight. |
+| **R–S:** Weighted Return / Weighted Loss | `=P5*Q5`                                    | Multiply each loss by its weight → gives weighted loss.                                 |
+| **T:** Cumulative Weight                 | `=SUM($Q$5:Q5)`                             | Builds up total probability mass (for percentile extraction).                           |
+
+
+# Parm VaR Eq Weights Analysis Workbook
+
+In a stress testing or portfolio risk context, the correlation matrix you showed is not calculated by Excel automatically — it’s a user-defined assumption used as a model input.
+
+You’re essentially specifying how strongly different indices (DJIA, FTSE 100, CAC40, Nikkei 225) move together under the stress scenario.
+
+So:
+
+“1” on the diagonal = perfect correlation with itself.
+
+“0.8” = a judgmental estimate of how correlated DJIA is with FTSE 100 (or CAC40) during stress.
+
+These values don’t come from Excel formulas — they’re chosen by analysts based on historical data, expert judgment, or stress scenario assumptions.
+
+🔹 2. Why 0.8 specifically?
+
+In practice:
+
+Under normal market conditions, DJIA and FTSE 100 might have a correlation around 0.7–0.9 (since both are large developed-market indices).
+
+Under stress, correlations often increase — markets move more together when risk aversion spikes.
+
+Analysts might round or adjust to a simple number (like 0.8) for modeling convenience.
+
+So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European markets are highly but not perfectly correlated.
+
+
+| Column                                   | Example Formula                                             | Purpose / Logic                                                     |
+| ---------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------- |
+| **A–F:** Asset Returns                   | `=(Data!C3-Data!C2)/Data!C2`                                | Raw daily return per asset (equal weights assumed).                 |
+| **G–L:** Covariance & Correlation Matrix | `=CORREL(B$3:B$502, C$3:C$502)` or `=COVARIANCE.P(...)`     | Calculates pairwise correlation/covariance between assets.          |
+| **M:** Asset Variances                   | `=VAR.S(B3:B502)`                                           | Individual asset variances (used to build Σ matrix).                |
+| **N:** Confidence Level                  | Manually set (e.g., 0.99 or 0.95)                           | Used for z-score.                                                   |
+| **O:** Z-score                           | `=_xlfn.NORM.S.INV(N3)`                                     | Inverse normal quantile for given confidence level.                 |
+| **P:** Parm VaR                          | `=$H$22*O5`                                                 | Estimates maximum expected portfolio loss at confidence level.      |
+| **Q:** ES                                | `=$H$22*NORM.S.DIST(O3,FALSE)/(1-N3)`                       | Calculates average loss beyond VaR during extreme events..          |
 
