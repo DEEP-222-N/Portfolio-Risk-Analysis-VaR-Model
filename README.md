@@ -93,4 +93,13 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 * To provide investors and risk managers with **scenario-based probability estimates of potential losses or gains**.
 * To support **VaR calculation and risk management decisions**.
 ---
+| Metric        | Value     | Description                                                                           |
+| ------------- | --------- | ------------------------------------------------------------------------------------- |
+| **Scenarios** | 500       | Total number of simulated portfolio scenarios                                         |
+| **Min**       | -159.8253 | Minimum portfolio loss observed (worst-case scenario)                                 |
+| **Max**       | 237.6732  | Maximum portfolio gain observed (best-case scenario)                                  |
+| **Mean**      | -2.0144   | Average portfolio gain/loss across all scenarios                                      |
+| **Std Dev**   | 61.6684   | Standard deviation of portfolio outcomes (risk/volatility measure)                    |
+| **Skewness**  | 0.4284    | Measure of asymmetry in loss distribution: >0 → right-skewed, <0 → left-skewed        |
+| **Kurtosis**  | 0.5681    | Measure of "tailedness" of distribution: higher → fatter tails, lower → thinner tails |
 
