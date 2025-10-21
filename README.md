@@ -52,9 +52,32 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
    * Minimum Loss, Maximum Gain, Mean, Standard Deviation, Skewness, Kurtosis.
    * Provides insights into **extreme losses, volatility, and distribution characteristics** of portfolio returns.
 
+
+5. **Loss Statistics (NLoss, F(Nloss), Normal, Tloss, Std T, T):**
+
+   * Provides **advanced risk metrics** for portfolio analysis.
+   * Includes **normal distribution percentages, T-distribution calculations, and standardized loss values**.
+   * Helps assess **extreme loss probabilities** and **tail risk**.
+
+6. **Insightful Interpretation:**
+
+   * Most portfolio scenarios cluster around **small gains/losses (0 to ±50 USD)**.
+   * Extreme losses (e.g., -600 to -300 USD) are **rare**, shown by very low relative frequencies.
+   * This distribution helps **calculate Value at Risk (VaR)** and **stress test portfolio performance**.
+
+---
+
 ## Purpose
 
 * To help investors or risk managers understand **how a portfolio reacts to market fluctuations**.
 * To quantify potential **worst-case losses** using historical or scenario-based simulations.
+* * To visualize and quantify **portfolio risk exposure**.
+* To provide investors and risk managers with **scenario-based probability estimates of potential losses or gains**.
+* To support **VaR calculation and risk management decisions**.
+---
+
+Perfect! 😎 Ye aapka **Portfolio Loss Distribution & Risk Metrics table** hai. Mai iske liye ek **concise aur clear README description** bana deta hun jo GitHub pe directly use kiya ja sake:
 
 ---
+
+
