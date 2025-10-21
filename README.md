@@ -215,3 +215,15 @@ So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European 
 | **P:** Parm VaR                          | `=$H$22*O5`                                                 | Estimates maximum expected portfolio loss at confidence level.      |
 | **Q:** ES                                | `=$H$22*NORM.S.DIST(O3,FALSE)/(1-N3)`                       | Calculates average loss beyond VaR during extreme events..          |
 
+
+| Column                         | Example Formula                                       | Purpose / Logic                                                   |
+| ------------------------------ | ----------------------------------------------------- | ----------------------------------------------------------------- |
+| **A–E:** Historical Returns    | `=(Data!C3-Data!C2)/Data!C2`                          | Base returns for assets.                                          |
+| **F:** Lambda (λ)              | `=0.94`                                               | Decay factor (higher = smoother volatility).                      |
+|  EWMA Variances                | `=G5*$F$3 + A5^2*(1-$F$3)`                            | Recursive formula: new σ² = λ * old σ² + (1-λ) * r².              |
+| EWMA Covariances               | `=K5*$F$3 + A5*B5*(1-$F$3)`                           | Covariance update between assets (same EWMA rule).                |
+| **O:** EWMA Portfolio Variance | `=MMULT(TRANSPOSE(Weights),MMULT(CovMatrix,Weights))` | Portfolio σ² using latest EWMA covariance matrix.                 |
+
+
+
+
