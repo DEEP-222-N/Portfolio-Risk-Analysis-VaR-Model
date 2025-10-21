@@ -246,3 +246,7 @@ So, 0.8 is manually chosen to reflect that under stress, U.S. and U.K./European 
 |                             | CI_Up                  | Upper bound of VaR confidence interval                    | `=B23 + NORM.S.INV($B$21) * C23`                                   |
 |                             | Explanation            | CI gives the range where “true” VaR likely lies           | Subtract / add margin of error (z-score × Std Error) to VaR        |
 | **Expected Shortfall (ES)** | ES                     | Average loss beyond VaR (tail risk)                       | `=AVERAGEIF(LossRange, "<=" & -VaR)`                               |
+
+
+
+
