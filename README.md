@@ -23,6 +23,24 @@ Chalo mai **clear explanation likh deta hun jo aap repo me use kar sako**, jisse
 
 # Portfolio Loss Analysis Workbook
 
+| Column                              | Description                                        | Formula / Notes                                 |
+| ----------------------------------- | -------------------------------------------------- | ----------------------------------------------- |
+| **Scenario**                        | Scenario number (1, 2, … 500)                      | Each simulated market scenario                  |
+| **GSPC / Hang Seng / DAX / Nikkei** | Daily values of portfolio securities               | Taken from market/index data                    |
+| **Portfolio**                       | Total portfolio value for that scenario            | Sum of individual securities' values            |
+| **Profit / Loss**                   | Gain or loss in USD for that scenario              | `Portfolio - Initial Portfolio Value`           |
+| **Bins**                            | Intervals of losses/gains                          | Example: -600, -550, … 500                      |
+| **Frequency**                       | Number of scenarios in that bin                    | Count of portfolio outcomes falling in that bin |
+| **Rel Freq (Relative Frequency)**   | % of total scenarios in the bin                    | `Frequency / Total Scenarios`                   |
+| **Cum Freq (Cumulative Frequency)** | Cumulative % of scenarios up to that bin           | Sum of previous Rel Freq + current Rel Freq     |
+| **NLoss**                           | Reference loss value for Normal distribution       | Same as bin center or specific loss point       |
+| **F(Nloss)**                        | Cumulative probability under Normal distribution   | `=NORM.DIST(NLoss, Mean, StdDev, TRUE)`         |
+| **Normal**                          | Probability of portfolio loss in that bin (Normal) | `Current F(Nloss) - Previous F(Nloss)`          |
+| **Tloss**                           | Reference loss value for T-distribution            | Same as bin center or specific loss point       |
+| **Std T**                           | Standardized T-value                               | `(Tloss - Mean) / StdDev`                       |
+| **F(Tloss) / T**                    | Cumulative probability under T-distribution        | `=T.DIST(Tloss, Degrees of Freedom, TRUE)`      |
+
+
 This Excel workbook is designed to **analyze the potential losses of a diversified portfolio** consisting of multiple securities under different market scenarios. It calculates scenario-wise portfolio values, profits, and losses to help **quantify risk**.
 
 ## Workbook Contents
