@@ -129,7 +129,7 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 |                             | Explanation            | CI gives the range where “true” VaR likely lies           | Subtract / add margin of error (z-score × Std Error) to VaR        |
 | **Expected Shortfall (ES)** | ES                     | Average loss beyond VaR (tail risk)                       | `=AVERAGEIF(LossRange, "<=" & -VaR)`                               |
 
-
+# Normal VAR Analysis Workbook
 
 | **Formula**                                                 |  **Meaning / Purpose**                                                                                  |
 | ----------------------------------------------------------- |------------------------------------------------------------------------------------------------------ | 
