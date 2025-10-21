@@ -76,8 +76,3 @@ This Excel workbook is designed to **analyze the potential losses of a diversifi
 * To support **VaR calculation and risk management decisions**.
 ---
 
-Perfect! 😎 Ye aapka **Portfolio Loss Distribution & Risk Metrics table** hai. Mai iske liye ek **concise aur clear README description** bana deta hun jo GitHub pe directly use kiya ja sake:
-
----
-
-
