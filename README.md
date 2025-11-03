@@ -1,6 +1,6 @@
 # Portfolio-Risk-Analysis-VaR-Model
 
-This project is an Excel-based financial risk analysis tool designed to measure and compare different methods of calculating Value at Risk (VaR) for a portfolio of global assets.
+This project is an Excel + Power BI -based financial risk analysis tool designed to measure and compare different methods of calculating Value at Risk (VaR) for a portfolio of global assets.
 
 It uses historical market data (such as S&P 500, Hang Seng, DAX, and Nikkei) to analyze how portfolio values fluctuate under various market conditions. The main objective is to understand how much a portfolio can potentially lose over a specific period with a certain level of confidence.
 
